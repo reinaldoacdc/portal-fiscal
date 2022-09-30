@@ -14,7 +14,7 @@ export default function Home() {
         Welcome to Fiscal-API
       </p>
 
-      <SearchBar api='cfop' ></SearchBar>
+      <SearchBar api='ncm' ></SearchBar>
     </div>
   );
 }

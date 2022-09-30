@@ -38,7 +38,7 @@ export default function SearchBar(props: SearchProps) {
         </div>
         <ul className="results">
               {results.map( r => {
-                  return <li style="padding: 10px;"><a href={`/${props.api}/${r.codigo}`} style="font-style: underline;"> {r.codigo} - {r.descricao}</a></li>
+                  return <li style="padding: 10px;"><a href={`/${props.api}/${r.codigo.replace(/\D/g, '')}`} style="font-style: underline;"> {r.codigo} - {r.descricao}</a></li>
               })}
           </ul>
       </div>

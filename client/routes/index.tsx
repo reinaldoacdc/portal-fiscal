@@ -7,7 +7,11 @@ export default function Home() {
     <Layout>
       <h1 class={`text-2xl text-center`}>Welcome to Fiscal-API</h1>
 
-      <ConverterForm origem="1"></ConverterForm>
+      <ConverterForm
+        origem="1"
+        cst="20"
+      >
+      </ConverterForm>
     </Layout>
   );
 }

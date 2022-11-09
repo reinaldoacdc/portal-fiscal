@@ -1,22 +1,24 @@
 import origemJson from "../data/origem.json" assert { type: "json" };
+import cstJson from "../data/cst.json" assert { type: "json" };
 
 import { useState } from "https://esm.sh/stable/preact@10.11.0/deno/hooks.js";
 import CustomSelect from "../components/CustomSelect.tsx";
 
 const origemCodes = Object.values(origemJson);
+const cstCodes = Object.values(cstJson);
 
 interface ConverterFormProps {
-  amount?: number;
+  cst?: string;
   origem?: string;
   to?: string;
 }
 
 export default function ConverterForm(
-  { amount, origem, to }: ConverterFormProps,
+  { cst, origem, to }: ConverterFormProps,
 ) {
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
-    amount,
+    cst,
     origem,
     to,
   });
@@ -30,13 +32,21 @@ export default function ConverterForm(
         setSubmitted(true);
       }}
     >
-      <div className="flex">
+      <div>
         <CustomSelect
           currencies={origemCodes}
           name="origem"
           selectedCurrency={form.origem}
           label="Origem"
-          onChange={(from) => setForm({ ...form, origem })}
+          onChange={(origem) => setForm({ ...form, origem })}
+        >
+        </CustomSelect>
+        <CustomSelect
+          currencies={cstCodes}
+          name="cst"
+          selectedCurrency={form.cst}
+          label="CST"
+          onChange={(cst) => setForm({ ...form, cst })}
         >
         </CustomSelect>
       </div>

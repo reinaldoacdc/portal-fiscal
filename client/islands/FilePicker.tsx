@@ -1,7 +1,10 @@
 import { useState, useRef, useCallback } from "preact/hooks";
 import { Button } from "../components/Button.tsx";
 import  Progress from '../components/ProgressBar.tsx'
-
+import {
+  DOMParser,
+  Element,
+} from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
 
 export default function FilePicker() {
@@ -34,13 +37,31 @@ export default function FilePicker() {
     }
     const [results, setResults] = useState<File[]>([])
 
-    const toggleState = useCallback( async () => {
+    const toggleState = useCallback(  () => {
       let index = 0
       setTotal(fileList.length)
       console.log('total: ', total)
       fileList.forEach( el => {
         setProgress( index++ )
-        console.log('file: ')
+        if(el.name){
+          console.log('afile: ', el)
+          const reader = new FileReader()
+          reader.readAsText(el);
+  
+          reader.onload = function() {
+            //console.log(reader.result);
+            const parser = new DOMParser()
+            const xmlDoc = parser.parseFromString(reader.result!.toString(), "text/html")
+            const tag = xmlDoc?.getElementsByTagName('ide')[0].getElementsByTagName('natOp')[0].textContent
+            console.log("tag: ", tag)  
+          };
+
+
+          reader.onerror = function() {
+            console.log(reader.error);
+          };
+        }
+              
         console.log('progress: ', progress)
       })        
     });

@@ -9,12 +9,15 @@ import * as $2 from "./routes/cest.tsx";
 import * as $3 from "./routes/cest/[codigo].tsx";
 import * as $4 from "./routes/cfop.tsx";
 import * as $5 from "./routes/cfop/[codigo].tsx";
-import * as $6 from "./routes/index.tsx";
-import * as $7 from "./routes/ncm.tsx";
-import * as $8 from "./routes/ncm/[codigo].tsx";
+import * as $6 from "./routes/form.tsx";
+import * as $7 from "./routes/import.tsx";
+import * as $8 from "./routes/index.tsx";
+import * as $9 from "./routes/ncm.tsx";
+import * as $10 from "./routes/ncm/[codigo].tsx";
 import * as $$0 from "./islands/Counter.tsx";
-import * as $$1 from "./islands/SearchBar.tsx";
-import * as $$2 from "./islands/TributosForm.tsx";
+import * as $$1 from "./islands/FilePicker.tsx";
+import * as $$2 from "./islands/SearchBar.tsx";
+import * as $$3 from "./islands/TributosForm.tsx";
 
 const manifest = {
   routes: {
@@ -24,14 +27,17 @@ const manifest = {
     "./routes/cest/[codigo].tsx": $3,
     "./routes/cfop.tsx": $4,
     "./routes/cfop/[codigo].tsx": $5,
-    "./routes/index.tsx": $6,
-    "./routes/ncm.tsx": $7,
-    "./routes/ncm/[codigo].tsx": $8,
+    "./routes/form.tsx": $6,
+    "./routes/import.tsx": $7,
+    "./routes/index.tsx": $8,
+    "./routes/ncm.tsx": $9,
+    "./routes/ncm/[codigo].tsx": $10,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
-    "./islands/SearchBar.tsx": $$1,
-    "./islands/TributosForm.tsx": $$2,
+    "./islands/FilePicker.tsx": $$1,
+    "./islands/SearchBar.tsx": $$2,
+    "./islands/TributosForm.tsx": $$3,
   },
   baseUrl: import.meta.url,
   config,
